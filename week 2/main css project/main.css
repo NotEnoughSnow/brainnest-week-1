@@ -108,3 +108,46 @@ button {
 }
 
 /* section 2 */
+
+#section_2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#section_2 > p{
+    font-family: "roboto";
+    font-weight: 300;
+    color: #1F2937;
+    font-size: 36px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#images_section {
+    display: flex;
+    flex-direction: row;
+}
+
+.image_item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+}
+
+.image_box {
+    width: 150px;
+    height: 150px;
+    border: 4px solid #3882F6 ;
+    border-radius: 10px;
+}
+
+#images_section p {
+    font-family: "roboto";
+    font-weight: 100;
+    color: #1F2937;
+    font-size: 18px;
+    text-align: center;
+}
