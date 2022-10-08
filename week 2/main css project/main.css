@@ -23,6 +23,14 @@
     font-weight: 100;
 }
 
+body {
+    margin: 0px;
+}
+
+p {
+    font-family: "roboto", sans-serif;
+}
+
 /* section 1 */
 #section_1 {
     background-color: #1F2937;
@@ -81,21 +89,18 @@ nav {
 }
 
 .main {
-    font-family: "roboto";
     font-weight: 300;
     color: #F9FAF8;
     font-size: 48px;
 }
 
 .secondary {
-    font-family: "roboto";
     font-weight: 100;
     color: #E5E7EB;
     font-size: 18px;
 }
 
 .header {
-    font-family: "roboto";
     font-weight: 200;
     color: #F9FAF8;
     font-size: 24px;
@@ -103,7 +108,6 @@ nav {
 
 button {
     background-color: #3882F6;
-    font-family: "roboto";
     font-weight: 200;
     color: #E5E7EB;
     /*border: 2px solid white;*/
@@ -124,7 +128,6 @@ button {
 }
 
 #section_2 > p{
-    font-family: "roboto";
     font-weight: 300;
     color: #1F2937;
     font-size: 36px;
@@ -153,7 +156,6 @@ button {
 }
 
 #images_section p {
-    font-family: "roboto";
     font-weight: 100;
     color: #1F2937;
     font-size: 18px;
@@ -172,7 +174,6 @@ button {
 }
 
 #quote {
-    font-family: "roboto";
     font-weight: 100;
     color: #1F2937;
     font-style: italic;
@@ -180,10 +181,10 @@ button {
 }
 
 #quote_name {
-    font-family: "roboto";
     font-weight: 200;
     font-size: 24px;
     color: #1F2937;
+    text-align: end;
 }
 
 /* section 4 */
