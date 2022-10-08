@@ -1,0 +1,110 @@
+@font-face {
+    font-family: "roboto";
+    src: url(fonts/Roboto-Light.ttf) format('truetype');
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: "roboto";
+    src: url(fonts/Roboto-Bold.ttf) format('truetype');
+    font-weight: 200;
+}
+
+@font-face {
+    font-family: "roboto";
+    src: url(fonts/Roboto-Black.ttf) format('truetype');
+    font-weight: 300;
+}
+
+/* section 1 */
+#section_1 {
+    background-color: #1F2937;
+    padding-left: 16%;
+    padding-right: 16%;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#smaller_headers_container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+#welcome_text_container p {
+    margin: 0px;
+    padding: 0px;
+}
+
+#preface {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #E5E7EB;
+}
+
+#welcome_text_container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    /* justify-items: center; */
+    /* visibility: hidden; */
+    align-items: flex-start;
+    margin-bottom: 10%;
+    margin-top: 10%;
+}
+
+#place_holder {
+    flex: 1;
+    /* border: 1px solid red; */
+    display: flex;
+    /* width: 100%; */
+    /* height: 100%; */
+    justify-content: space-around;
+    align-content: center;
+    background-color: gray;
+    height: 200px;
+    align-items: center;
+}
+
+.main {
+    font-family: "roboto";
+    font-weight: 300;
+    color: #F9FAF8;
+    font-size: 48px;
+}
+
+.secondary {
+    font-family: "roboto";
+    font-weight: 100;
+    color: #E5E7EB;
+    font-size: 18px;
+}
+
+.header {
+    font-family: "roboto";
+    font-weight: 200;
+    color: #F9FAF8;
+    font-size: 24px;
+}
+
+button {
+    background-color: #3882F6;
+    font-family: "roboto";
+    font-weight: 200;
+    color: #E5E7EB;
+    /*border: 2px solid white;*/
+    border: 0px;
+    margin-top: 0.5em;
+    border-radius: 5px;
+    padding: 0.5em;
+    width: 8em;
+}
+
+/* section 2 */
