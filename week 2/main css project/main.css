@@ -16,6 +16,13 @@
     font-weight: 300;
 }
 
+@font-face {
+    font-family: "roboto";
+    src: url(fonts/Roboto-LightItalic.ttf) format('truetype');
+    font-style: italic;
+    font-weight: 100;
+}
+
 /* section 1 */
 #section_1 {
     background-color: #1F2937;
@@ -113,6 +120,7 @@ button {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 5%;
 }
 
 #section_2 > p{
@@ -151,3 +159,30 @@ button {
     font-size: 18px;
     text-align: center;
 }
+
+/* section 3 */
+
+#section_3 {
+    FONT-WEIGHT: 200;
+    background-color: #E5E7EB;
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+#quote {
+    font-family: "roboto";
+    font-weight: 100;
+    color: #1F2937;
+    font-style: italic;
+    font-size: 36px;
+}
+
+#quote_name {
+    font-family: "roboto";
+    font-weight: 200;
+    font-size: 24px;
+    color: #1F2937;
+}
+
