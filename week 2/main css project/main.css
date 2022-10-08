@@ -207,4 +207,14 @@ button {
     height: 50px;
 }
 
+#footer {
+    background-color: #1F2937;
+    text-align: center;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
 
