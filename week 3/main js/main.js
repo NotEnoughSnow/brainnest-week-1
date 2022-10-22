@@ -1,3 +1,83 @@
+
+const rockBtn = document.getElementById("rock");
+const paperBtn = document.getElementById("paper");
+const scissorsBtn = document.getElementById("scissors");
+
+const resultText = document.getElementById("result");
+const subResultText = document.getElementById("sub_result");
+
+let disable = false;
+let result;
+let computerPick;
+
+function fadeOutEffect(element) {
+    var fadeTarget = element;
+    var fadeEffect = setInterval(function () {
+        if (!fadeTarget.style.opacity) {
+            fadeTarget.style.opacity = 1;
+        }
+        if (fadeTarget.style.opacity > 0) {
+            fadeTarget.style.opacity -= 0.1;
+        } else {
+            clearInterval(fadeEffect);
+        }
+    }, 30);
+}
+
+/*function fadeInEffect(element) {
+    var fadeTarget = element;
+    var fadeEffect = setInterval(function () {
+        fadeTarget.style.opacity += 0.1;
+
+    }, 30);
+}
+
+fadeInEffect(resultText); */
+
+function showText(){
+    resultText.style.opacity = 1;
+    subResultText.style.opacity = 1;
+    resultText.textContent = result;
+    subResultText.textContent = computerPick;
+
+}
+
+rockBtn.addEventListener("click", () => {
+    if(!disable){
+        console.log("You picked rock!");
+        result = playRound(0,computerPlay());
+        fadeOutEffect(rockBtn);
+        fadeOutEffect(paperBtn);
+        fadeOutEffect(scissorsBtn);
+        showText();
+        disable = true;
+    }
+});
+
+paperBtn.addEventListener("click", () => {
+    if(!disable){
+        console.log("You picked paper!");
+        result = playRound(1,computerPlay());
+        fadeOutEffect(rockBtn);
+        fadeOutEffect(paperBtn);
+        fadeOutEffect(scissorsBtn);
+        showText();
+        disable = true;
+    }
+});
+
+scissorsBtn.addEventListener("click", () => {
+    if(!disable){
+        console.log("You picked scissors!");
+        result = playRound(2,computerPlay());
+        fadeOutEffect(rockBtn);
+        fadeOutEffect(paperBtn);
+        fadeOutEffect(scissorsBtn);
+        showText();
+        disable = true;
+    }
+});
+
 /**
  * Randomizes a selection in {0,1,2}
  * @returns computer's choice
@@ -7,48 +87,18 @@ function computerPlay(){
     switch (randomNum) {
         case 0:
             console.log("Computer picks rock!");
+            computerPick = "Computer picks rock!";
             break;
         case 1:
             console.log("Computer picks paper!");
+            computerPick = "Computer picks paper!";
             break;
         case 2:
             console.log("Computer picks scissors!");
+            computerPick = "Computer picks scissors!";
             break;
     }
     return randomNum;
-}
-
-/**
- * Prompt the player's choice.
- * @param {*} extraMessage used to alert the player to input a desirable pick
- * @returns player choice
- */
-function selectionPrompt(round, extraMessage = ""){
-    let pick = prompt(`Round ${round}:\nrock, paper,or scissors ? (case insensitive)${extraMessage}`);
-    return pick;
-}
-
-/**
- * Projects the player's choice to {0 (rock),1 (paper),2 (scissors)} 
- * and reprompts if input is undesirable.
- * @param {*} choice
- * @returns projected number
- */
-function playerSelection(choice, round){
-    switch (choice.toUpperCase()) {
-        case "ROCK":
-            console.log("You picked rock!");
-            return 0;
-        case "PAPER":
-            console.log("You picked paper!");
-            return 1;
-        case "SCISSORS":
-            console.log("You picked scissors!");
-            return 2;
-        //in case it fails
-        default:
-            return playerSelection(selectionPrompt(round,"\nPlease pick from available choices."),round);
-    }
 }
 
 /**
@@ -78,21 +128,3 @@ function playRound(playerPick, computerPick){
     }
     return result;
 }
-
-function game(){
-    let maxRounds = 5;
-    let wins = 0;
-    let draws = 0;
-
-    for (let i=1; i<=maxRounds; i++){
-        console.log(`*Round ${i}*`);
-        if ((result = playRound(playerSelection(selectionPrompt(i),i), computerPlay())) == "You win!" )
-            wins++;
-        else if (result == "Draw!")
-            draws++;
-        console.log(result);
-    }
-    alert(`Wins ${wins+"/"+maxRounds}\nDraws ${draws+"/"+maxRounds}\nlosses ${(maxRounds-wins-draws)+"/"+maxRounds}`);
-}
-
-game();

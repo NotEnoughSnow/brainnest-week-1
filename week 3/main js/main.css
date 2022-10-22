@@ -1,0 +1,34 @@
+body{
+    background-color: #ffeb00;
+}
+
+*{
+    font-family: Verdana;
+    color: #222623
+}
+
+#result{
+    font-size: xx-large;
+    opacity: 0;
+}
+
+#sub_result{
+    font-size: large;
+    opacity: 0;
+}
+
+#result_container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10%;
+
+}
+
+#container{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5%;
+}
