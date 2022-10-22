@@ -20,7 +20,6 @@ const inputField = document.querySelector("#input");
 const clearBtn = document.querySelector("#clear");
 const backBtn = document.querySelector("#back");
 
-let params = [];
 let firstNum;
 let secondNum;
 let op;
