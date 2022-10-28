@@ -1,31 +1,61 @@
 *{
     font-family: monospace;
-    font-size: larger;
+    font-size: 25px;
     margin: 5px;
-    color: white;
+    color: #f1faee;
 }
 
 body{
-    background-color: #093142;
+    background-color: #1d3557;
 }
 
 button{
-    background-color:#1e92e6;
-    border: 1px solid white;
-    border-radius: 3px;
+    background-color:#457b9d;
+    border: 2px solid #a8dadc;
+    border-radius: 6px;
     width: 100px;
     height: 100px;
 }
 
+#back{
+    margin-left: 20px;
+}
+
 #input{
     height: 100px;
-    width: 300px;
+    width: 100%;
+    color: black;
+}
+#secondary_input{
+    height: 100px;
+    width: 100%;
     color: black;
 }
 
 #general_wrapper{
     display: flex;
-    flex-direction: column;
-    align-items: center;
     padding-top: 20%;
+}
+
+#number_container{
+    position: relative;
+
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.75, 0, 0.85, 1);
+}
+
+#hide{
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    
+}
+
+.number{
+    backface-visibility: hidden;
+}
+
+#show{
+    position: absolute;
+    top: 0;
+    left: 0;
 }

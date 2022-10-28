@@ -3,27 +3,30 @@ const addBtn = document.querySelector("#add");
 const multiplyBtn = document.querySelector("#multiply");
 const substractBtn = document.querySelector("#substract");
 const divideBtn = document.querySelector("#divide");
-
-const zeroBtn = document.querySelector("#zero");
-const oneBtn = document.querySelector("#one");
-const twoBtn = document.querySelector("#two");
-const threeBtn = document.querySelector("#three");
-const fourBtn = document.querySelector("#four");
-const fiveBtn = document.querySelector("#five");
-const sixBtn = document.querySelector("#six");
-const sevenBtn = document.querySelector("#seven");
-const eightBtn = document.querySelector("#eight");
-const nineBtn = document.querySelector("#nine");
-
 const equalBtn = document.querySelector("#equal");
-const inputField = document.querySelector("#input");
 const clearBtn = document.querySelector("#clear");
 const backBtn = document.querySelector("#back");
+const number = document.getElementsByClassName("number");
+
+const inputField = document.querySelector("#input");
+const resultField = document.querySelector("#secondary_input");
+
 
 let firstNum;
 let secondNum;
 let op;
 let result;
+
+for (let i = 0; i < number.length; i++) {
+    number[i].addEventListener("click", () => {
+        inputField.value += parseInt(number[i].textContent);
+
+        if(op != undefined) {
+            calculate();
+            resultField.value = result;
+        }
+    });
+  }
 
 let sum = (a,b) => a+b;
 let substract = (a,b) => a-b;
@@ -50,37 +53,11 @@ function evaluate(parameters){
     return result * evaluate(evaluatedParams)
 }
 
-zeroBtn.addEventListener("click", () => {
-    inputField.value += 0;
-
-});
-oneBtn.addEventListener("click", () => {
-    inputField.value += 1;
-});
-twoBtn.addEventListener("click", () => {
-    inputField.value += 2;
-});
-threeBtn.addEventListener("click", () => {
-    inputField.value += 3;
-});
-fourBtn.addEventListener("click", () => {
-    inputField.value += 4;
-});
-fiveBtn.addEventListener("click", () => {
-    inputField.value += 5;
-});
-sixBtn.addEventListener("click", () => {
-    inputField.value += 6;
-});
-sevenBtn.addEventListener("click", () => {
-    inputField.value += 7;
-});
-eightBtn.addEventListener("click", () => {
-    inputField.value += 8;
-});
-nineBtn.addEventListener("click", () => {
-    inputField.value += 9;
-});
+function calculate(){
+    
+    secondNum = parseInt(parseInt(inputField.value.match(/\d+$/)[0]));
+    result = operate(firstNum,secondNum,op);
+}
 
 addBtn.addEventListener("click", () => {
     op = sum;
@@ -104,9 +81,11 @@ divideBtn.addEventListener("click", () => {
 });
 
 equalBtn.addEventListener("click", () => {
-    secondNum = parseInt(parseInt(inputField.value.match(/\d+$/)[0]));
-    result = operate(firstNum,secondNum,op);
+    calculate();
     inputField.value = result;
+    resultField.value = "";
+    op = undefined;
+    firstNum = result;
 });
 
 clearBtn.addEventListener("click", () => {
