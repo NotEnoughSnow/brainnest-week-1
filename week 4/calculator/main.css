@@ -36,26 +36,4 @@ button{
     display: flex;
     padding-top: 20%;
 }
-
-#number_container{
-    position: relative;
-
-    transform-style: preserve-3d;
-    transition: transform 0.8s cubic-bezier(0.75, 0, 0.85, 1);
-}
-
-#hide{
-    transform: rotateY(180deg);
-    backface-visibility: hidden;
-    
-}
-
-.number{
-    backface-visibility: hidden;
-}
-
-#show{
-    position: absolute;
-    top: 0;
-    left: 0;
-}
+ 
