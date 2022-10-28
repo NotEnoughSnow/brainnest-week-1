@@ -1,34 +1,77 @@
-body{
-    background-color: #ffeb00;
+@font-face {
+    font-family: "reforma";
+    src: url(fonts/Reforma-Grotesk.ttf) format('truetype');
+    font-weight: bold;
 }
 
 *{
-    font-family: Verdana;
+    font-family: "reforma",Verdana;
+    font-weight: bold;
+    font-size: 50px;
     color: #222623
 }
 
+body{
+    background-color: #ffeb00;
+    display: flex;
+    justify-content: center;
+}
+
 #result{
-    font-size: xx-large;
-    opacity: 0;
+    font-size: 100px;
+    /*opacity: 0;*/
+    margin: 0px;
 }
 
 #sub_result{
-    font-size: large;
-    opacity: 0;
+    /*opacity: 0;*/
+    margin: 0px;
 }
 
 #result_container{
+    position: absolute;
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-top: 10%;
+    opacity: 0;
+}
 
+#count_container{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    top: 25vw;
+    opacity: 0;
+}
+
+.count_item{
+    margin: 0.6em;
+    font-size: 40px;
 }
 
 #container{
+    position: absolute;
     display: flex;
     align-content: center;
     align-items: center;
     justify-content: center;
-    margin-top: 5%;
+    margin-top: 15%;
+}  
+
+/* common transition settings */
+.common_transition{
+    backface-visibility: hidden;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
+    transition: 1s;
+    transition-timing-function: cubic-bezier(0, 0, 0.25, 1);
+}
+
+#retry{
+    position: absolute;
+    top: 50vw;
+    opacity: 0;
 }

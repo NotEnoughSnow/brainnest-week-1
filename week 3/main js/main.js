@@ -3,78 +3,106 @@ const rockBtn = document.getElementById("rock");
 const paperBtn = document.getElementById("paper");
 const scissorsBtn = document.getElementById("scissors");
 
+const winLbl = document.getElementById("win");
+const lossLbl = document.getElementById("loss");
+const drawLbl = document.getElementById("draw");
+
 const resultText = document.getElementById("result");
 const subResultText = document.getElementById("sub_result");
 
+const textContainer = document.getElementById("result_container");
+const retryButton = document.getElementById("retry");
+
+const countContainer = document.getElementById("count_container");
+
+
 let disable = false;
 let result;
+let lossCount = 0;
+let winCount = 0;
+let drawCount = 0;
 let computerPick;
 
-function fadeOutEffect(element) {
-    var fadeTarget = element;
-    var fadeEffect = setInterval(function () {
-        if (!fadeTarget.style.opacity) {
-            fadeTarget.style.opacity = 1;
-        }
-        if (fadeTarget.style.opacity > 0) {
-            fadeTarget.style.opacity -= 0.1;
-        } else {
-            clearInterval(fadeEffect);
-        }
-    }, 30);
+function showRetry(){
+    retryButton.style.cssText += "     opacity: 1;   ";
 }
 
-/*function fadeInEffect(element) {
-    var fadeTarget = element;
-    var fadeEffect = setInterval(function () {
-        fadeTarget.style.opacity += 0.1;
-
-    }, 30);
+function showCount(){
+    countContainer.style.cssText += "     opacity: 1;   ";
 }
 
-fadeInEffect(resultText); */
+//hides the cards by flipping them
+function hideCards(){
+    rockBtn.style.cssText += "transform: rotateY(180deg);";
+    paperBtn.style.cssText += "transform: rotateY(180deg);";
+    scissorsBtn.style.cssText += "transform: rotateY(180deg);";
+}
 
+//displays the end-round results
 function showText(){
-    resultText.style.opacity = 1;
-    subResultText.style.opacity = 1;
     resultText.textContent = result;
     subResultText.textContent = computerPick;
 
+    winLbl.textContent = "wins : "+winCount;
+    lossLbl.textContent = "losses : "+lossCount;
+    drawLbl.textContent = "draws : "+drawCount;
+
+    textContainer.style.cssText += " margin-top: 10%; ";
+    textContainer.style.cssText += "     opacity: 1;   ";
+
+    setTimeout(showRetry, 1000);
+    setTimeout(showCount, 500);
+
 }
+
+//resets all visual states back to the original state.
+//deletes the added "element.style" lines
+function reset(){
+    textContainer.removeAttribute("style");
+    retryButton.removeAttribute("style");
+    countContainer.removeAttribute("style");
+    scissorsBtn.removeAttribute("style");
+    paperBtn.removeAttribute("style");
+    rockBtn.removeAttribute("style");
+
+    disable = false;
+}
+
+function flipAndFade(element){
+    element.style.cssText += "transform: rotateY(180deg);";
+    element.style.cssText += "     opacity: 0;   ";
+}
+
+retryButton.addEventListener("click", () => {
+        rockBtn.style.cssText += "transform: rotateY(0deg);";
+        paperBtn.style.cssText += "transform: rotateY(0deg);";
+        scissorsBtn.style.cssText += "transform: rotateY(0deg);";
+    
+        flipAndFade(textContainer);
+        flipAndFade(countContainer);
+        flipAndFade(retryButton);
+
+        setTimeout(reset, 1000);
+});
 
 rockBtn.addEventListener("click", () => {
     if(!disable){
-        console.log("You picked rock!");
         result = playRound(0,computerPlay());
-        fadeOutEffect(rockBtn);
-        fadeOutEffect(paperBtn);
-        fadeOutEffect(scissorsBtn);
-        showText();
-        disable = true;
+        endRound(result);
     }
 });
 
 paperBtn.addEventListener("click", () => {
     if(!disable){
-        console.log("You picked paper!");
         result = playRound(1,computerPlay());
-        fadeOutEffect(rockBtn);
-        fadeOutEffect(paperBtn);
-        fadeOutEffect(scissorsBtn);
-        showText();
-        disable = true;
+        endRound(result);
     }
 });
 
 scissorsBtn.addEventListener("click", () => {
     if(!disable){
-        console.log("You picked scissors!");
         result = playRound(2,computerPlay());
-        fadeOutEffect(rockBtn);
-        fadeOutEffect(paperBtn);
-        fadeOutEffect(scissorsBtn);
-        showText();
-        disable = true;
+        endRound(result);
     }
 });
 
@@ -86,19 +114,37 @@ function computerPlay(){
     let randomNum = Math.floor(Math.random()*3);
     switch (randomNum) {
         case 0:
-            console.log("Computer picks rock!");
-            computerPick = "Computer picks rock!";
+            computerPick = "Computer picked rock!";
             break;
         case 1:
-            console.log("Computer picks paper!");
-            computerPick = "Computer picks paper!";
+            computerPick = "Computer picked paper!";
             break;
         case 2:
-            console.log("Computer picks scissors!");
-            computerPick = "Computer picks scissors!";
+            computerPick = "Computer picked scissors!";
             break;
     }
     return randomNum;
+}
+
+function endRound(result){
+    hideCards();
+    disable = true;
+
+    switch (result) {
+        case "You win!":
+            winCount++;
+            break;
+        case "You lose!":
+            lossCount++;
+            break;
+        case "Draw!":
+            drawCount++;
+            break;
+        default:
+            throw "how";
+            break;
+    }
+    showText();
 }
 
 /**

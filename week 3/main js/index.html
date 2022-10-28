@@ -8,15 +8,21 @@
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
 </head>
 <body>
-    <div id="result_container">
+    <div id="count_container" class="common_transition">
+        <p id="win" class="count_item">PlaceHolder</p>
+        <p id="draw" class="count_item">PlaceHolder</p>
+        <p id="loss" class="count_item">PlaceHolder</p>
+    </div>
+    <div id="container">
+        <img id="rock" class="common_transition" src="images/rock.png" width="400" height="400">
+        <img id="paper" class="common_transition" src="images/paper.png" width="400" height="400">
+        <img id="scissors" class="common_transition" src="images/scissors.png" width="400" height="400">
+    </div>
+    <div id="result_container" class="common_transition">
         <p id="result">Result!</p>
         <p id="sub_result">sub result!</p>
     </div>
-    <div id="container">
-        <img id="rock" src="images/rock.png" width="400" height="400">
-        <img id="paper" src="images/paper.png" width="400" height="400">
-        <img id="scissors" src="images/scissors.png" width="400" height="400">
-    </div>
+    <div id="retry"  class="common_transition">Retry</div>
 </body>
 <script src='main.js'></script>
 </html>
